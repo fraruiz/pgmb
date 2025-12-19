@@ -1,0 +1,6 @@
+comment = 'A simple PostgreSQL Message Broker system'
+default_version = '1.0.0'
+module_pathname = '$libdir/pgmb'
+relocatable = false
+schema = 'pgmb'
+requires = 'pg_cron, http'

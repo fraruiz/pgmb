@@ -1,0 +1,25 @@
+{
+   "name": "pgmb",
+   "abstract": "A lightweight message broker inside PostgreSQL",
+   "version": "1.0.0",
+   "maintainer": "Francisco Ruiz franciscoruizlezcano@gmail.com",
+   "license": "postgresql",
+   "provides": {
+      "pgmb": {
+         "file": "pgmb--1.0.0.sql",
+         "version": "1.0.0"
+      }
+   },
+   "resources": {
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/fraruiz/pgmb.git",
+        "web": "https://github.com/fraruiz/pgmb"
+      }
+   },
+   "generated_by": "Francisco Ruiz",
+   "meta-spec": {
+      "version": "1.0.0",
+      "url": "http://pgxn.org/meta/spec.txt"
+   }
+}
