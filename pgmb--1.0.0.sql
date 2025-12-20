@@ -97,7 +97,7 @@ BEGIN
             "retries"        int4        NOT NULL DEFAULT 0,
             "locked"         bool        NOT NULL DEFAULT false,
             "enqueued_at"    timestamptz NOT NULL DEFAULT now(),
-            "acknoledged_at" timestamptz
+            "acknowledged_at" timestamptz
         );
     ', name);
 
@@ -109,7 +109,7 @@ BEGIN
             "retries"        int4        NOT NULL DEFAULT 0,
             "locked"         bool        NOT NULL DEFAULT false,
             "enqueued_at"    timestamptz NOT NULL DEFAULT now(),
-            "acknoledged_at" timestamptz
+            "acknowledged_at" timestamptz
         );
     ', name);
 
@@ -367,7 +367,7 @@ BEGIN
 
         -- 3. Lógica de éxito o reintento/DLQ
         IF response_status >= 200 AND response_status < 300 THEN
-            EXECUTE FORMAT('UPDATE pgmb.%I_queue SET acknoledge = true, locked = false, acknoledged_at = now() WHERE message_id = $1', queue_record.name) 
+            EXECUTE FORMAT('UPDATE pgmb.%I_queue SET acknoledge = true, locked = false, acknowledged_at = now() WHERE message_id = $1', queue_record.name) 
             USING message_record.message_id;
         ELSE
             IF message_record.retries >= queue_record.max_retries THEN
